@@ -30,5 +30,5 @@ I've found my data set on Kaggle - Health & Lifestyle [dataset](https://www.kagg
 
 ### dashboard images
 ![](images/dashboard_one.png)
-![](images/two.png)
+![](images/dashboard_two.png)
 
