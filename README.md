@@ -38,7 +38,7 @@ I've found my data set on Kaggle - Health & Lifestyle [dataset](https://www.kagg
 ### dashboard images
 ![](images/dashboard_one.png)
 ![](images/dashboard_two.png)
-![](images/dashboard_three.png)
+![](images/dashborad_three.png)
 ![](images/dashboard_four.png)
 
 ### how to run this dashboard
