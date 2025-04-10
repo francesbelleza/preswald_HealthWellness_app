@@ -1,9 +1,6 @@
-from preswald import text, plotly, connect, get_df, table, query
+from preswald import text, plotly, connect, get_df, table, query, sidebar
 import pandas as pd
 import plotly.express as px
-
-# TO DO:
-#   add x y labels
 
 text("# welcome to signl🫀")
 text("Designed for healthcare professionals, Signl highlights patterns "
@@ -12,6 +9,7 @@ text("Designed for healthcare professionals, Signl highlights patterns "
      "behaviors, and rhythms — giving clinical teams a clearer picture of the "
      "lifestyle factors that shape heart health.")
 
+sidebar()
 # Load the CSV
 connect() # load in all sources, which by default is the sample_csv
 df = get_df('health_activity_data_csv')
@@ -50,6 +48,7 @@ df_bp['top_part'] = pd.to_numeric(df_bp['top_part'], errors='coerce')
 df_bp['Age'] = pd.to_numeric(df_bp['Age'], errors='coerce')
 
 text("## blood pressure by gender")
+text(" y-axis is the number of people, and the x-axis is the average systolic blood pressure ")
 fig = px.histogram(df_bp, x='top_part', color='Gender',
                    barmode='group', nbins=20,
                    labels={'top_part': 'Blood Pressure', 'Gender': 'Gender'})
@@ -70,16 +69,18 @@ df_sleep_hr['Heart_Rate'] = pd.to_numeric(df_sleep_hr['Heart_Rate'], errors='coe
 df_sleep_hr = df_sleep_hr.dropna(subset=['Hours_of_Sleep', 'Heart_Rate'])
 
 text("## breakdown of sleep length")
+text("the y-axis is the number of people, and the x-axis is the average hours of sleep")
 fig_sleep = px.histogram(df_sleep_hr, x='Hours_of_Sleep',
                          nbins=20,
-                         labels={'Hours_of_Sleep': 'Hours of Sleep'})
+                         labels={'Hours_of_Sleep': 'Hours of Sleep','count': 'people'})
 fig_sleep.update_layout(template='plotly_white', bargap=0.2)
 plotly(fig_sleep)
 
 text("## breakdown of heart rate")
+text("the y-axis is the number of people, and the x-axis is the average heart rate")
 fig_hr = px.histogram(df_sleep_hr, x='Heart_Rate',
                       nbins=20,
-                      labels={'Heart_Rate': 'Heart Rate'})
+                      labels={'Heart_Rate': 'Heart Rate', 'count': 'people'})
 fig_hr.update_layout(template='plotly_white', bargap=0.2)
 plotly(fig_hr)
 
@@ -91,13 +92,13 @@ WHERE Heart_Disease = 'Yes'
 """
 df_diabetic = query(sql, "health_activity_data_csv")
 
-### histogram
+### pie chart
 diabetic_counts = df_diabetic['Diabetic'].value_counts().reset_index()
 diabetic_counts.columns = ['Diabetic', 'count']
 
 text("## diabetic v. non-diabetic")
 fig = px.pie(diabetic_counts, names='Diabetic', values='count')
-fig.update_layout(template='plotly_white')
+fig.update_layout(template='plotly_white', bargap=0.2)
 plotly(fig)
 
-text("###*'Helping care teams notice the quiet signals in lifestyle data.'*")
+text("*'Helping care teams notice the quiet signals in lifestyle data.'*")

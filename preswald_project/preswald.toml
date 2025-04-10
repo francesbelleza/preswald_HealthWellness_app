@@ -1,15 +1,15 @@
 [project]
-title = "Preswald Project"
+title = "Signl"
 version = "0.1.0"
 port = 8501
 slug = "preswald-project-908628"  
 entrypoint = "hello.py"    
 
 [branding]
-name = "Preswald Project"
+name = "signl"
 logo = "images/logo.png"
 favicon = "images/favicon.ico"
-primaryColor = "#F89613"
+primaryColor = "#E9EDC9"
 
 [data.health_activity_data_csv]
 type = "csv"
