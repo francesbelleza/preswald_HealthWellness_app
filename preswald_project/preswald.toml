@@ -2,8 +2,8 @@
 title = "Preswald Project"
 version = "0.1.0"
 port = 8501
-slug = "preswald-project"
-entrypoint = "hello.py"
+slug = "preswald-project-908628"  
+entrypoint = "hello.py"    
 
 [branding]
 name = "Preswald Project"
@@ -11,10 +11,10 @@ logo = "images/logo.png"
 favicon = "images/favicon.ico"
 primaryColor = "#F89613"
 
-[data.sample_csv]
+[data.health_activity_data_csv]
 type = "csv"
-path = "data/sample.csv"
+path = "data/health_activity_data.csv"
 
 [logging]
-level = "INFO"
+level = "INFO"  
 format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
