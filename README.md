@@ -38,3 +38,18 @@ I've found my data set on Kaggle - Health & Lifestyle [dataset](https://www.kagg
 ![](images/dashboard_one.png)
 ![](images/dashboard_two.png)
 
+
+### how to run this dashboard
+
+1. make sure preswald is installed
+    ````
+    pip install preswald
+    
+2. clone the repo
+    ````
+    git clone https://github.com/francesbelleza/preswald_HealthWellness_app
+    cd preswald_HealthWellness_app/preswald_project```
+
+3. run the dash
+   ````
+   preswald run
